@@ -1,5 +1,5 @@
 # Operator Variables
-name: "odf-operator" # Operator name
+name: "ocs-operator" # Operator name
 
 # Namespace Variables
 namespace: "openshift-storage" # Namespace to deploy operator into
@@ -7,12 +7,12 @@ namespaceCreate: true # To define whether or not to create the namespace
 clusterMonitoring: true # Turn on cluster monitoring of openshift-storage namespace
 
 # Operatorgroup Variables
-operatorGroupName: "odf-operatorgroup" # Name of operatorgroup
+operatorGroupName: "ocs-operatorgroup" # Name of operatorgroup
 operatorGroupCreate: true # To define if a operator-group resource should be created
 
 # Subscription Variables
-subscriptionName: "odf-operator" # Subscription name to use
-operatorChannel: "stable-4.9" # Operator channel to use
+subscriptionName: "ocs-operator" # Subscription name to use
+operatorChannel: "stable-4.8" # Operator channel to use
 operatorInstallPlanApproval: "Automatic" # Type of Approval, can be either Automatic or Manual
 operatorSourceName: "redhat-operators" # Source of operator
 operatorSourceNamespace: "openshift-marketplace" # Source namespace of operator

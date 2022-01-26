@@ -19,10 +19,10 @@
         "name": {
             "type": "string",
             "description": "Operator name",
-            "default": "odf-operator",
+            "default": "ocs-operator",
             "pattern": "^[a-z0-9-_]+$",
             "examples": [
-                "odf-operator"
+                "ocs-operator"
             ]
         },
         "namespace": {
@@ -47,10 +47,10 @@
         "operatorGroupName": {
             "type": "string",
             "description": "Name of operatorgroup",
-            "default": "odf-operatorgroup",
+            "default": "ocs-operatorgroup",
             "pattern": "^[a-z0-9-_]+$",
             "examples": [
-                "odf-operatorgroup"
+                "ocs-operatorgroup"
             ]
         },
         "operatorGroupCreate": {
@@ -61,19 +61,19 @@
         "subscriptionName": {
             "type": "string",
             "description": "Subscription name to use",
-            "default": "odf-operator",
+            "default": "ocs-operator",
             "pattern": "^[a-z0-9-_]+$",
             "examples": [
-                "odf-operator"
+                "ocs-operator"
             ]
         },
         "operatorChannel": {
             "type": "string",
             "description": "Operator channel to use",
-            "default": "stable-4.9",
+            "default": "stable-4.8",
             "pattern": "^[a-z0-9-_]+$",
             "examples": [
-                "stable-4.9"
+                "stable-4.8"
             ]
         },
         "operatorInstallPlanApproval": {

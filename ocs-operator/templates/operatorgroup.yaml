@@ -1,0 +1,10 @@
+{{- if .Values.operatorGroupCreate }}
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: {{ template "operator.operatorGroupName" $ }}
+  namespace: {{ template "operator.namespace" $ }}
+spec:
+  targetNamespaces:
+  - {{ template "operator.namespace" $ }}
+{{- end }}
