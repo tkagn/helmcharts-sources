@@ -1,10 +1,11 @@
 {{- if .Values.namespaceCreate }}
+---
 # Create openshift-storage namespace.
 apiVersion: v1
 kind: Namespace
 metadata:
   labels:
     openshift.io/cluster-monitoring: '{{ .Values.clusterMonitoring }}'
-  name: {{ template "odf-operator.namespace" $ }}
+  name: {{ template "operator.namespace" $ }}
 spec: {}
 {{- end }}

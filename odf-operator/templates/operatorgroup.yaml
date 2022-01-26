@@ -2,9 +2,9 @@
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: {{ template "odf-operator.operatorGroupName" $ }}
-  namespace: {{ template "odf-operator.namespace" $ }}
+  name: {{ template "operator.operatorGroupName" $ }}
+  namespace: {{ template "operator.namespace" $ }}
 spec:
   targetNamespaces:
-  - {{ template "odf-operator.namespace" $ }}
+  - {{ template "operator.namespace" $ }}
 {{- end }}
