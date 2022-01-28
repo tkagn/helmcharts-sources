@@ -1,0 +1,105 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "description": "The root schema comprises the entire JSON document.",
+    "required": [
+        "name",
+        "namespace",
+        "namespaceCreate",
+        "clusterMonitoring",
+        "operatorGroupName",
+        "operatorGroupCreate",
+        "subscriptionName",
+        "operatorChannel",
+        "operatorInstallPlanApproval",
+        "operatorSourceName",
+        "operatorSourceNamespace"
+    ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Operator name",
+            "default": "ocs-operator",
+            "pattern": "^[a-z0-9-_]+$",
+            "examples": [
+                "ocs-operator"
+            ]
+        },
+        "namespace": {
+            "type": "string",
+            "description": "Namespace to deploy operator into1",
+            "default": "openshift-storage",
+            "pattern": "^[a-z0-9-_]+$",
+            "examples": [
+                "openshift-storage"
+            ]
+        },
+        "namespaceCreate": {
+            "type": "boolean",
+            "description": "To define whether or not to create the namespace",
+            "default": true,
+        },
+        "clusterMonitoring": {
+            "type": "boolean",
+            "description": "Turn on cluster monitoring of openshift-storage namespace",
+            "default": true,
+        },
+        "operatorGroupName": {
+            "type": "string",
+            "description": "Name of operatorgroup",
+            "default": "openshift-storage",
+            "pattern": "^[a-z0-9-_]+$",
+            "examples": [
+                "openshift-storage"
+            ]
+        },
+        "operatorGroupCreate": {
+            "type": "boolean",
+            "description": "To define if a operator-group resource should be created",
+            "default": false,
+        },
+        "subscriptionName": {
+            "type": "string",
+            "description": "Subscription name to use",
+            "default": "ocs-operator",
+            "pattern": "^[a-z0-9-_]+$",
+            "examples": [
+                "ocs-operator"
+            ]
+        },
+        "operatorChannel": {
+            "type": "string",
+            "description": "Operator channel to use",
+            "default": "stable-4.8",
+            "pattern": "^[a-z0-9-_]+$",
+            "examples": [
+                "stable-4.8"
+            ]
+        },
+        "operatorInstallPlanApproval": {
+            "type": "string",
+            "description": "Type of Approval, can be either Automatic or Manual",
+            "default": "Automatic",
+            "pattern": "^[a-z0-9-_]+$",
+        },
+        "operatorSourceName": {
+            "type": "string",
+            "description": "Source of operator",
+            "default": "redhat-operators",
+            "pattern": "^[a-z0-9-_]+$",
+            "examples": [
+                "redhat-operators"
+            ]
+        },
+        "operatorSourceNamespace": {
+            "type": "string",
+            "description": "Source namespace of operator",
+            "default": "openshift-marketplace",
+            "pattern": "^[a-z0-9-_]+$",
+            "examples": [
+                "openshift-marketplace"
+            ]
+        }
+    },
+    "additionalProperties": true
+}
