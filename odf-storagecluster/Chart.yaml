@@ -1,5 +1,4 @@
 apiVersion: v2
-name: ocs-operator
-description: A Helm chart for the OpenShift Container Storage (OCS) operator
+name: odf-storagecluster
+description: A Helm chart for the OpenShift Data Foundation (ODF) storagecluster
 version: 0.2.0
-appVersion: "4.8"
