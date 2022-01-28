@@ -7,7 +7,7 @@ namespaceCreate: true # To define whether or not to create the namespace
 clusterMonitoring: true # Turn on cluster monitoring of openshift-storage namespace
 
 # Operatorgroup Variables
-operatorGroupName: "ocs-operatorgroup" # Name of operatorgroup
+operatorGroupName: "openshift-storage" # Name of operatorgroup
 operatorGroupCreate: true # To define if a operator-group resource should be created
 
 # Subscription Variables
