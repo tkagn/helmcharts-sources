@@ -47,10 +47,10 @@
         "operatorGroupName": {
             "type": "string",
             "description": "Name of operatorgroup",
-            "default": "odf-operatorgroup",
+            "default": "openshift-storage",
             "pattern": "^[a-z0-9-_]+$",
             "examples": [
-                "odf-operatorgroup"
+                "openshift-storage"
             ]
         },
         "operatorGroupCreate": {
