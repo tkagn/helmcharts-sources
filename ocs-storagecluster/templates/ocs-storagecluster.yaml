@@ -2,41 +2,37 @@ apiVersion: ocs.openshift.io/v1
 kind: StorageCluster
 metadata:
   annotations:
-    uninstall.ocs.openshift.io/cleanup-policy: delete
-    uninstall.ocs.openshift.io/mode: graceful
-  name: ocs-storagecluster
-  namespace: openshift-storage
+    uninstall.ocs.openshift.io/cleanup-policy: {{ .Values.uninstallCleanupPolicy}}
+    uninstall.ocs.openshift.io/mode: {{ .Values.uninstallMode }}
+  name: {{ .Values.storageclusterName }}
+  namespace: {{ .Values.storageClusterNamespace }}
 spec:
-  arbiter: {}
-  encryption:
-    enable: true
-    kms: {}
   externalStorage: {}
   managedResources:
-    cephBlockPools: {}
-    cephConfig: {}
-    cephDashboard: {}
-    cephFilesystems: {}
-    cephObjectStoreUsers: {}
-    cephObjectStores: {}
-  nodeTopologies: {}
+    cephBlockPools:
+      reconcileStrategy: {{ .Values.cephBlockPoolsReconcileStrategy }}
+    cephFilesystems:
+      reconcileStrategy: {{ .Values.cephBlockPoolsReconcileStrategy }}
+    cephObjectStoreUsers:
+      reconcileStrategy: {{ .Values.cephBlockPoolsReconcileStrategy }}
+    cephObjectStores:
+      reconcileStrategy: {{ .Values.cephBlockPoolsReconcileStrategy }}
   storageDeviceSets:
-    - config: {}
+    - name: ocs-deviceset-standard
+      config: {}
       resources: {}
       placement: {}
-      name: ocs-deviceset-standard
+
       dataPVCTemplate:
-        metadata: {}
         spec:
           accessModes:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 512Gi
-          storageClassName: standard
+              storage: {{ .Values.storageDiskSize }}
+          storageClassName: {{ .Values.diskCountReplica }}
           volumeMode: Block
-        status: {}
-      count: 1
-      replica: 3
+      count: {{ .Values.diskCount }}
+      replica: {{ .Values.diskCountReplica }}
       portable: true
       preparePlacement: {}

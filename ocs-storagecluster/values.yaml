@@ -1,18 +1,35 @@
-# Operator Variables
-name: "ocs-operator" # Operator name
+# metadata.annotations
+uninstallCleanupPolicy: "delete"
+uninstallMode: "graceful"
+storageclusterName: "ocs-storagecluster"
+storageclusterNamespace: "openshift-storage"
 
-# Namespace Variables
-namespace: "openshift-storage" # Namespace to deploy operator into
-namespaceCreate: true # To define whether or not to create the namespace
-clusterMonitoring: true # Turn on cluster monitoring of openshift-storage namespace
+# spec section
+arbiter: '{}'
 
-# Operatorgroup Variables
-operatorGroupName: "openshift-storage" # Name of operatorgroup
-operatorGroupCreate: true # To define if a operator-group resource should be created
+# encryption settings
+encryptionEnable: false
+kms: '{}'
 
-# Subscription Variables
-subscriptionName: "ocs-operator" # Subscription name to use
-operatorChannel: "stable-4.8" # Operator channel to use
-operatorInstallPlanApproval: "Automatic" # Type of Approval, can be either Automatic or Manual
-operatorSourceName: "redhat-operators" # Source of operator
-operatorSourceNamespace: "openshift-marketplace" # Source namespace of operator
+# external storage
+externalStorage: '{}'
+
+flexibleScaling: false
+
+# managed resources
+cephBlockPoolsReconcileStrategy: 'manage'  # manage | init | ignore
+cephFilesystemsReconcileStrategy: 'manage' # manage | init | ignore
+cephObjectStoreUsersReconcileStrategy: 'manage' # manage | init | ignore
+cephObjectStoresReconcileStrategy: 'manage' # manage | init | ignore
+
+nodeTopologies: '{}'
+
+
+
+
+# Storage Device Sets
+
+storageDiskSize: "512Gi"
+storageClassName: "standard"
+diskCount: "1"
+diskCountReplica: "3"
