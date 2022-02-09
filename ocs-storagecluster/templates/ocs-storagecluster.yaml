@@ -8,6 +8,21 @@ metadata:
   namespace: {{ .Values.storageClusterNamespace }}
 spec:
   externalStorage: {}
+  flexibleScaling: {{ .Values.flexibleScaling }}
+  manageNodes: {{ .Values.manageNodes }}
+
+  resources:
+    mds:
+      limits:
+        cpu: {{ .Values.mdsLimitsCPU }}
+        memory: {{ .Values.mdsLimitsMemory }}
+      requests:
+        cpu: {{ .Values.mdsRequestsCPU }}
+        memory: {{ .Values.mdsRequestsMemory }}
+
+
+  monDataDirHostPath: {{ .Values.monDataDirHostPath }}
+
   managedResources:
     cephBlockPools:
       reconcileStrategy: {{ .Values.cephBlockPoolsReconcileStrategy }}
@@ -17,6 +32,10 @@ spec:
       reconcileStrategy: {{ .Values.cephBlockPoolsReconcileStrategy }}
     cephObjectStores:
       reconcileStrategy: {{ .Values.cephBlockPoolsReconcileStrategy }}
+  multiCloudGateway:
+    reconcileStrategy: {{ .Values.mcgReconcileStrategy }}
+
+
   storageDeviceSets:
     - name: ocs-deviceset-standard
       config: {}

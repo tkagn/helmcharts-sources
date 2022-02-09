@@ -15,12 +15,25 @@ kms: '{}'
 externalStorage: '{}'
 
 flexibleScaling: false
+manageNodes: false
+
+# Resources - limits and requests
+mdsLimitsCPU: "3"
+mdsLimitsMemory: "8Gi"
+mdsRequestsCPU: "3"
+mdsRequestsMemory: "8Gi"
+
+# Monitor host path
+monDataDirHostPath: "/var/lib/rook"
 
 # managed resources
 cephBlockPoolsReconcileStrategy: 'manage'  # manage | init | ignore
 cephFilesystemsReconcileStrategy: 'manage' # manage | init | ignore
 cephObjectStoreUsersReconcileStrategy: 'manage' # manage | init | ignore
 cephObjectStoresReconcileStrategy: 'manage' # manage | init | ignore
+
+# multiCloudGateway
+mcgReconcileStrategy: 'manage' # manage | init | ignore
 
 nodeTopologies: '{}'
 
